@@ -10,7 +10,8 @@ export class HeroesComponent {
   heroes: Hero[] = [];
   constructor(private heroService: HeroService){};
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
   selectedHero?: Hero;
   onSelect(hero: Hero): void{
